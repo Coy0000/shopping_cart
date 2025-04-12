@@ -1,0 +1,24 @@
+foods = [] 
+prices = [] 
+total = 0
+
+# Collect food and prices
+while True:
+    food_entry = input("Enter food item (q to quit): ")
+    if food_entry.lower() == "q":
+        break
+    try:
+        price_entry = float(input(f"Enter the price of {food_entry}: $"))
+        foods.append(food_entry)
+        prices.append(price_entry)
+    except ValueError:
+        print("Please enter a valid number for price.")
+
+# Print the list of foods with prices
+print("\nItems Purchased:")
+for food, price in zip(foods, prices):
+    print(f"{food}: ${price:.2f}")
+    total += price
+
+# Print the total
+print(f"\nYour total is: ${total:.2f}")
